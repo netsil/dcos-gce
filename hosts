@@ -4,7 +4,11 @@ netsil-cloud-master1 ip=10.142.0.21
 netsil-cloud-master2 ip=10.142.0.22
 
 [agents]
-netsil-cloud-agent[0000:9999]
+netsil-cloud-agent[0001:0002]
+
+[allnodes:children]
+masters
+agents
 
 [bootstrap]
 bootstrap
