@@ -1,10 +1,10 @@
 [masters]
-master0 ip=10.132.0.3
-master1 ip=10.132.0.4
-master2 ip=10.132.0.5
+netsil-cloud-master0 ip=10.142.0.20
+netsil-cloud-master1 ip=10.142.0.21
+netsil-cloud-master2 ip=10.142.0.22
 
 [agents]
-agent[0000:9999]
+netsil-cloud-agent[0000:9999]
 
 [bootstrap]
 bootstrap
