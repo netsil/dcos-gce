@@ -1,29 +1,29 @@
 ---
-project: trek-trackr
+project: netsil-dev
 
-subnet: default-6f68d4d6fabcb680
+subnet: default
 
-login_name: ajazam
+login_name: centos
 
 bootstrap_public_ip: 10.132.0.2
 
-zone: europe-west1-c
+zone: us-east-1b
 
 
 
 
-master_boot_disk_size: 10
+master_boot_disk_size: 40
 
-master_machine_type: n1-standard-2
+master_machine_type: n1-standard-4
 
 master_boot_disk_type: pd-standard
 
 
-agent_boot_disk_size: 10
+agent_boot_disk_size: 150
 
-agent_machine_type: n1-standard-2
+agent_machine_type: n1-standard-8
 
-agent_boot_disk_type: pd-standard
+agent_boot_disk_type: pd-ssd
 
 agent_instance_type: "MIGRATE"
 
@@ -31,7 +31,7 @@ agent_type: private
 
 start_id: 0001
 
-end_id: 0001
+end_id: 003
 
 
 
@@ -57,10 +57,4 @@ home_directory: "/home/{{ login_name }}"
 downloads_from_bootstrap: 2
 
 dcos_bootstrap_container: dcosinstaller
-
-
-
-
-
-
 

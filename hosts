@@ -1,5 +1,7 @@
 [masters]
 master0 ip=10.132.0.3
+master1 ip=10.132.0.4
+master2 ip=10.132.0.5
 
 [agents]
 agent[0000:9999]
