@@ -46,7 +46,7 @@
     - pause: seconds=10
 
 - name: Install dcos on nodes
-  hosts: agents[{{start_id}}:{{ end_id }}]
+  hosts: agents
   become: yes
   become_user: root
   gather_facts: no
@@ -55,7 +55,7 @@
       file: dest=/tmp/dcos state=directory
 
     - name: install dependencies
-      yum: name="{{ item  }}" state=present
+      yum: name="{{ item }}" state=present
       with_items:
         - unzip
         - ipset
