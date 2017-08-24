@@ -4,7 +4,7 @@ gcloud compute instance-groups set-named-ports netsil-cloud-agent-ig \
     --zone us-east1-b 
 
 gcloud compute instance-groups set-named-ports netsil-cloud-agent-ig \
-    --named-ports stats-port:2000 \
+    --named-ports stats-port:2001 \
     --zone us-east1-b
 
 gcloud compute backend-services create netsil-cloud-agent-backend-svc-fe \
