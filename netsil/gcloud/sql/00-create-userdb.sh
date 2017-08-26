@@ -23,9 +23,3 @@ gcloud sql instances create netsil-cloud-userdb \
        --maintenance-window-day=SAT \
        --maintenance-window-hour=23
 
-# Store this password in 1pass and read it in when running the command below
-# Create root user
-gcloud sql users create root % \
-	--instance=netsil-cloud-userdb \
-	--password=cfEhfsNNl84Gh4oE
-
