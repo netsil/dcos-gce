@@ -6,5 +6,5 @@ passwd=`cat userdb-passwd-file`
 
 # Create root user
 gcloud sql users create root % \
-        --instance=netsil-cloud-userdb \
+        --instance=$CLOUDSQL_NAME \
         --password=$passwd

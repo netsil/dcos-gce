@@ -7,7 +7,7 @@
 # Get static IP addresses of agents
 
 # Create the CloudSQL instance
-gcloud sql instances create netsil-cloud-userdb \
+gcloud sql instances create $CLOUDSQL_NAME \
        --database-version=MYSQL_5_7 \
        --region=$REGION \
        --gce-zone=$ZONE \
@@ -18,7 +18,7 @@ gcloud sql instances create netsil-cloud-userdb \
        --backup \
        --backup-start-time=10:00 \
        --enable-bin-log \
-       --failover-replica-name=netsil-cloud-userdb-failover-replica \
+       --failover-replica-name=$CLOUDSQL_NAME-failover-replica \
        --authorized-networks=35.196.209.188,35.196.105.109 \
        --maintenance-window-day=SAT \
        --maintenance-window-hour=23

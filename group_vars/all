@@ -5,7 +5,7 @@ subnet: default
 
 login_name: centos
 
-bootstrap_public_ip: 10.142.0.12
+bootstrap_public_ip: 10.138.0.15
 
 zone: us-west1-b
 
