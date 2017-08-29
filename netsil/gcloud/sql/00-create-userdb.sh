@@ -9,8 +9,8 @@
 # Create the CloudSQL instance
 gcloud sql instances create netsil-cloud-userdb \
        --database-version=MYSQL_5_7 \
-       --region=us-east1 \
-       --gce-zone=us-east1-b \
+       --region=$REGION \
+       --gce-zone=$ZONE \
        --tier=db-n1-standard-8 \
        --storage-auto-increase \
        --storage-type=SSD \

@@ -7,7 +7,7 @@ login_name: centos
 
 bootstrap_public_ip: 10.142.0.12
 
-zone: us-east1-b
+zone: us-west1-b
 
 
 
