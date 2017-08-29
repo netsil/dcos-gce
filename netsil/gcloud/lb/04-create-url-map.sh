@@ -1,12 +1,15 @@
 #!/bin/bash
 set -x
 stats_backend=netsil-cloud-agent-backend-svc-stats
+superuser_backend=netsil-cloud-agent-backend-svc-superuser
 
 gcloud compute url-maps create netsil-cloud-agent-lb --default-service netsil-cloud-agent-backend-svc-fe
 
 # Remove path matchers
 gcloud compute url-maps remove-path-matcher netsil-cloud-agent-lb --path-matcher-name=netsil-stats-path-matcher
+gcloud compute url-maps remove-path-matcher netsil-cloud-agent-lb --path-matcher-name=netsil-superuser-path-matcher
 
+# For fe and stats
 gcloud compute url-maps add-path-matcher netsil-cloud-agent-lb \
     --path-matcher-name netsil-stats-path-matcher \
     --default-service netsil-cloud-agent-backend-svc-fe \
@@ -27,3 +30,11 @@ gcloud compute url-maps add-path-matcher netsil-cloud-agent-lb \
 
 # Go to :80/*
 # /* 
+
+# For superuser
+gcloud compute url-maps add-path-matcher netsil-cloud-agent-lb \
+    --path-matcher-name netsil-superuser-path-matcher \
+    --default-service netsil-cloud-agent-backend-svc-superuser \
+    --new-hosts *.netsil.com:8080 \
+    --path-rules="/app/login=$superuser_backend"
+
