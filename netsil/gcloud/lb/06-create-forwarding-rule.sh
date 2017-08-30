@@ -11,6 +11,3 @@ gcloud compute forwarding-rules create netsil-cloud-https-forwarding-rule --glob
 	--ip-protocol TCP --port-range 443 \
 	--target-https-proxy netsil-cloud-https-proxy
 
-gcloud compute forwarding-rules create netsil-cloud-superuser-forwarding-rule --global --address $netsil_cloud_address \
-	--ip-protocol TCP --port-range 8080 \
-	--target-http-proxy netsil-cloud-superuser-proxy
