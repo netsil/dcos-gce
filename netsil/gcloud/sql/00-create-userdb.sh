@@ -8,13 +8,13 @@
 
 # Create the CloudSQL instance
 gcloud sql instances create $CLOUDSQL_NAME \
-       --database-version=MYSQL_5_7 \
+       --database-version=$CLOUDSQL_DB_VERSION \
        --region=$REGION \
        --gce-zone=$ZONE \
-       --tier=db-n1-standard-8 \
+       --tier=db-$CLOUDSQL_TIER \
        --storage-auto-increase \
        --storage-type=SSD \
-       --storage-size=500 \
+       --storage-size=$CLOUDSQL_STORAGE_SIZE \
        --backup \
        --backup-start-time=10:00 \
        --enable-bin-log \

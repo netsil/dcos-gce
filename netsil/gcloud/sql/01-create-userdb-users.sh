@@ -2,7 +2,7 @@
 set -x
 
 # Get password
-passwd=`cat userdb-passwd-file`
+passwd=`cat $USERDB_PASSWORD_FILE`
 
 # Create root user
 gcloud sql users create root % \
