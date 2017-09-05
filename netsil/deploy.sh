@@ -5,7 +5,7 @@ export APPS_DIR=${APPS_DIR:-"/home/centos/netsil-dcos-gce/netsil/netsil-builder/
 python ./netsil/gen-hosts.py
 
 # Generate id string
-start_end_ids=python ./netsil/gen-hosts.py -a "gen_start_end_ids"
+start_end_ids=$(python ./netsil/gen-hosts.py -a "gen_start_end_ids")
 
 # Install DCOS masters
 ansible-playbook -i hosts install.yml

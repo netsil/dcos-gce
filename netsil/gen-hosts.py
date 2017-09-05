@@ -57,6 +57,17 @@ def get_starting_ip():
         except yaml.YAMLError as exc:
             print(exc)
 
+def get_new_worker(args):
+    with open(args.current_hosts_file, 'r') as chf:
+        agent_ids = list()
+        for line in chf:
+            line = line.strip()
+            agent_ids.append(line[-4:])
+        agent_ids.sort()
+        last = int(agent_ids[-1])
+        new = last + 1
+        print '%04d' % new
+
 def main(args):
     args.agents = get_num_agents()
     args.starting_ip = get_starting_ip()
@@ -65,12 +76,15 @@ def main(args):
         gen_hosts(args)
     elif action == 'gen_start_end_ids':
         gen_start_end_ids(args)
+    elif action == 'get_new_worker':
+        get_new_worker(args)
     else:
         print "Invalid action!"
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='For generating delta sequences between two sets of marathon JSON specs')
     parser.add_argument('-a', '--action', default='gen_hosts', dest='action', type=str, nargs='?')
+    parser.add_argument('-c', '--current-hosts-file', default='current-hosts.tmp', dest='current_hosts_file', type=str, nargs='?')
     parser.add_argument('-m', '--masters', default='3', dest='masters', type=str, nargs='?')
     parser.add_argument('-w', '--agents', default='2', dest='agents', type=str, nargs='?')
     parser.add_argument('-s', '--starting-ip', default='10.138.1.0', dest='starting_ip', type=str, nargs='?')
