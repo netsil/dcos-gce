@@ -15,7 +15,7 @@ def gen_env(args):
                 num_masters = int(cloud_vars['masters'])
                 masterList = list()
                 for i in range(num_masters):
-                    masterList.append(base_key + '-master' + str(i + 1))
+                    masterList.append(base_key + '-master' + str(i))
                 print ','.join(masterList)
             elif args.env == "agents":
                 end_id = cloud_vars['end_id']
