@@ -15,5 +15,6 @@ ansible-playbook -i additional-hosts add_agents.yml --extra-vars "$start_end_ids
 ansible-playbook -i additional-hosts netsil/netsil-builder/ansible/cloud-deployment.yml
 
 # GCP specific
-./netsil/gcloud/lb/00-add-instances-to-ig.sh $start_end_ids
-# TODO: Add new agent to netsil-cloud-agent-ig
+# TODO: Re-source cloud-env.sh with new agents
+source ./netsil/cloud-env.sh
+./netsil/gcloud/lb/00-add-instances-to-ig.sh
