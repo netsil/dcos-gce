@@ -9,7 +9,6 @@ start_end_ids=
 gcloud compute instance-groups list-instances netsil-cloud-agent-ig --zone us-west1-b | tail -n+2 | awk '{print $1}' > ${hosts_current}
 python get-new-host.py ${hosts_current}
 
-
 # Install DCOS agents
 ansible-playbook -i additional-hosts add_agents.yml --extra-vars "$start_end_ids agent_type=private"
 
@@ -17,4 +16,4 @@ ansible-playbook -i additional-hosts add_agents.yml --extra-vars "$start_end_ids
 ansible-playbook -i additional-hosts netsil/netsil-builder/ansible/cloud-deployment.yml
 
 # GCP specific
-# TODO: Add new agent to netsil-cloud-agent-ig 
+# TODO: Add new agent to netsil-cloud-agent-ig

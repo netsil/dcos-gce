@@ -58,5 +58,5 @@ downloads_from_bootstrap: 2
 
 dcos_bootstrap_container: dcosinstaller
 
----
 # Netsil Section
+starting_ip: 10.138.0.80
