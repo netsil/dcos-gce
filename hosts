@@ -6,6 +6,8 @@ netsil-cloud-master2 ip=10.138.0.82
 [agents]
 netsil-cloud-agent0001
 netsil-cloud-agent0002
+netsil-cloud-agent0003
+netsil-cloud-agent0004
 
 [allnodes:children]
 masters

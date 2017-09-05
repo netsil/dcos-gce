@@ -1,6 +1,9 @@
 #!/bin/bash
 export APPS_DIR=${APPS_DIR:-"/home/centos/netsil-dcos-gce/netsil/netsil-builder/apps"}
 
+# Generate hosts file
+python ./netsil/gen-hosts.py
+
 # Install DCOS masters
 ansible-playbook -i hosts install.yml
 

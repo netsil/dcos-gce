@@ -1,0 +1,16 @@
+[masters]
+{% for master in masterlist %}
+{{ master }}
+{% endfor %}
+
+[agents]
+{% for agent in agentList %}
+{{ agent }}
+{% endfor %}
+
+[allnodes:children]
+masters
+agents
+
+[bootstrap]
+bootstrap
