@@ -59,4 +59,11 @@ downloads_from_bootstrap: 2
 dcos_bootstrap_container: dcosinstaller
 
 # Netsil Section
+masters: 3
 starting_ip: 10.138.0.80
+region: us-west1
+base_key: netsil-cloud-dev
+cloudsql_db_version: MYSQL_5_7
+cloudsql_tier: db-n1-standard-8
+cloudsql_storage_size: 500
+

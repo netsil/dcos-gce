@@ -33,19 +33,27 @@ def gen_hosts(args):
     print output_from_parsed_template
 
     # to save the results
-    #with open("hosts", "wb") as fh:
-    #    fh.write(output_from_parsed_template)
+    with open("hosts", "wb") as fh:
+        fh.write(output_from_parsed_template)
 
 def gen_start_end_ids(args):
     num_agents = int(args.agents)
     print "start_id=0001 end_id=" + '%04d' % num_agents
+
+def get_num_masters():
+    with open("group_vars/all", 'r') as stream:
+        try:
+            cloud_vars = yaml.load(stream, Loader=yaml.BaseLoader)
+            return int(cloud_vars['masters'])
+        except yaml.YAMLError as exc:
+            print(exc)
 
 def get_num_agents():
     with open("group_vars/all", 'r') as stream:
         try:
             cloud_vars = yaml.load(stream, Loader=yaml.BaseLoader)
             end_id = cloud_vars['end_id']
-            return int(end_id.rstrip("0"))
+            return int(end_id.lstrip("0"))
         except yaml.YAMLError as exc:
             print(exc)
 
@@ -69,6 +77,7 @@ def get_new_worker(args):
         print '%04d' % new
 
 def main(args):
+    args.masters = get_num_masters()
     args.agents = get_num_agents()
     args.starting_ip = get_starting_ip()
     action = args.action
@@ -82,11 +91,9 @@ def main(args):
         print "Invalid action!"
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='For generating delta sequences between two sets of marathon JSON specs')
+    parser = argparse.ArgumentParser(description='')
     parser.add_argument('-a', '--action', default='gen_hosts', dest='action', type=str, nargs='?')
     parser.add_argument('-c', '--current-hosts-file', default='current-hosts.tmp', dest='current_hosts_file', type=str, nargs='?')
-    parser.add_argument('-m', '--masters', default='3', dest='masters', type=str, nargs='?')
-    parser.add_argument('-w', '--agents', default='2', dest='agents', type=str, nargs='?')
     parser.add_argument('-s', '--starting-ip', default='10.138.1.0', dest='starting_ip', type=str, nargs='?')
     args = parser.parse_args()
     main(args)
