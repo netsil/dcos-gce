@@ -1,29 +1,29 @@
 ---
-project: trek-trackr
+# DCOS section
+project: netsil-dev
 
-subnet: default-6f68d4d6fabcb680
+subnet: default
 
-login_name: ajazam
+login_name: centos
 
-bootstrap_public_ip: 10.132.0.2
+bootstrap_public_ip: 10.138.0.16
 
-zone: europe-west1-c
-
-
+zone: us-west1-b
 
 
-master_boot_disk_size: 10
+
+master_boot_disk_size: 50
 
 master_machine_type: n1-standard-2
 
-master_boot_disk_type: pd-standard
+master_boot_disk_type: pd-ssd
 
 
-agent_boot_disk_size: 10
+agent_boot_disk_size: 500
 
-agent_machine_type: n1-standard-2
+agent_machine_type: n1-highmem-8
 
-agent_boot_disk_type: pd-standard
+agent_boot_disk_type: pd-ssd
 
 agent_instance_type: "MIGRATE"
 
@@ -31,7 +31,7 @@ agent_type: private
 
 start_id: 0001
 
-end_id: 0001
+end_id: 0003
 
 
 
@@ -44,7 +44,7 @@ image_project: 'centos-cloud'
 
 bootstrap_public_port: 8080
 
-cluster_name: cluster_name
+cluster_name: netsil-cloud
 
 scopes: "default=https://www.googleapis.com/auth/cloud-platform"
 
@@ -58,9 +58,12 @@ downloads_from_bootstrap: 2
 
 dcos_bootstrap_container: dcosinstaller
 
-
-
-
-
-
+# Netsil Section
+masters: 3
+starting_ip: 10.138.1.10
+region: us-west1
+base_key: netsil-cloud-prod
+cloudsql_db_version: MYSQL_5_7
+cloudsql_tier: db-n1-standard-8
+cloudsql_storage_size: 500
 

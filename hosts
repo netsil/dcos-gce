@@ -1,8 +1,27 @@
 [masters]
-master0 ip=10.132.0.3
+
+netsil-cloud-prod-master0 ip=10.138.1.10
+
+netsil-cloud-prod-master1 ip=10.138.1.11
+
+netsil-cloud-prod-master2 ip=10.138.1.12
+
 
 [agents]
-agent[0000:9999]
+
+netsil-cloud-prod-agent0001
+
+netsil-cloud-prod-agent0002
+
+netsil-cloud-prod-agent0003
+
+
+[single-agent]
+netsil-cloud-prod-agent0001
+
+[allnodes:children]
+masters
+agents
 
 [bootstrap]
 bootstrap

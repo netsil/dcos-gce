@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "image_name": "dcos-bootstrap",
+    "ssh_user": "centos"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "/Users/luhkevin/credentials/account.json",
+      "project_id": "netsil-dev",
+      "source_image": "centos-7-v20170829",
+      "ssh_username": "{{user `ssh_user`}}",
+      "zone": "us-west1-b",
+      "image_name": "{{user `image_name`}}-{{ timestamp }}",
+      "image_description": "DCOS bootstrap image"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "destination": "~/docker.service",
+      "source": "./docker.service"
+    },
+    {
+      "type": "file",
+      "destination": "~/selinux-config",
+      "source": "./selinux-config"
+    },
+    {
+      "type": "shell",
+        "inline": [
+            "sudo cp ~/docker.service /usr/lib/systemd/system/docker.service",
+            "sudo cp ~/selinux-config /etc/selinux/config"
+        ]
+    },
+    {
+      "type": "shell",
+      "script": "provision.sh"
+    }
+  ]
+}
