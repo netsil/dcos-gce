@@ -8,6 +8,9 @@
 {{ agent }}
 {% endfor %}
 
+[single-agent]
+{{ agentList[0] }}
+
 [allnodes:children]
 masters
 agents

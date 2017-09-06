@@ -6,7 +6,7 @@ subnet: default
 
 login_name: centos
 
-bootstrap_public_ip: 10.138.0.15
+bootstrap_public_ip: 10.138.0.16
 
 zone: us-west1-b
 
@@ -16,7 +16,7 @@ master_boot_disk_size: 50
 
 master_machine_type: n1-standard-2
 
-master_boot_disk_type: pd-standard
+master_boot_disk_type: pd-ssd
 
 
 agent_boot_disk_size: 500
@@ -31,7 +31,7 @@ agent_type: private
 
 start_id: 0001
 
-end_id: 0004
+end_id: 0003
 
 
 
@@ -60,9 +60,9 @@ dcos_bootstrap_container: dcosinstaller
 
 # Netsil Section
 masters: 3
-starting_ip: 10.138.0.80
+starting_ip: 10.138.1.10
 region: us-west1
-base_key: netsil-cloud-dev
+base_key: netsil-cloud-prod
 cloudsql_db_version: MYSQL_5_7
 cloudsql_tier: db-n1-standard-8
 cloudsql_storage_size: 500

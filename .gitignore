@@ -1,4 +1,7 @@
 netsil/AOC
 netsil/netsil-builder
 netsil/gcloud/lb/1f4de9cd5f6616bb.*
+netsil/gcloud/lb/*.crt
+netsil/gcloud/lb/*.rsa-key
 netsil/gcloud/sql/userdb-passwd-file
+netsil/gcloud/sql/*-userdb-passwd-file
