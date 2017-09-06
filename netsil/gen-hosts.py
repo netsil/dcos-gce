@@ -2,6 +2,9 @@
 from jinja2 import Environment, FileSystemLoader
 import yaml
 import argparse
+import os
+
+BASE_KEY = os.environ.get('BASE_KEY')
 
 # Dumb way to get next n ip addresses from starting ip start_ip
 def dumb_get_next_ips(starting_ip, n):
@@ -21,10 +24,10 @@ def gen_hosts(args):
     masterList, agentList = list(), list()
     next_ips = dumb_get_next_ips(args.starting_ip, num_masters)
     for i in range(num_masters):
-        masterList.append("netsil-cloud-master" + str(i) + " ip=" + str(next_ips[i]))
+        masterList.append(BASE_KEY + "-master" + str(i) + " ip=" + str(next_ips[i]))
 
     for i in range(num_agents):
-        agentList.append("netsil-cloud-agent" + '%04d' % i)
+        agentList.append(BASE_KEY + "-agent" + str('%04d' % (i + 1)))
 
     # Templating
     env = Environment(loader=FileSystemLoader('./'))

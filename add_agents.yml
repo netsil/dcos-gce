@@ -8,7 +8,7 @@
   tasks:
     - name: remove agents from known_hosts file
       command: /usr/bin/ssh-keygen -R {{ item }} 
-      with_sequence: start={{ start_id }} end={{ end_id }} format=netsil-cloud-agent%04x
+      with_sequence: start={{ start_id }} end={{ end_id }} format="{{ lookup('env', 'BASE_KEY') }}"-agent%04x
       ignore_errors: true
 
     - name: launch agent instances
@@ -16,7 +16,7 @@
                --subnet {{ subnet }}  --maintenance-policy {{ agent_instance_type }} --tags \"{{agent_type}}agent\" --scopes {{ scopes }} 
                --image {{ image }} --image-project {{ image_project }} --boot-disk-size {{ agent_boot_disk_size }} 
                --boot-disk-type {{ agent_boot_disk_type }} --boot-disk-device-name boot --metadata hostname={{ item }}"
-      with_sequence: start={{ start_id }} end={{ end_id }} format=netsil-cloud-agent%04x
+      with_sequence: start={{ start_id }} end={{ end_id }} format="{{ lookup('env', 'BASE_KEY') }}"-agent%04x
       register: vm_instances
       async: 7200
       poll: 0
