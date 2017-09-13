@@ -19,9 +19,9 @@ master_machine_type: n1-standard-2
 master_boot_disk_type: pd-ssd
 
 
-agent_boot_disk_size: 500
+agent_boot_disk_size: 1000
 
-agent_machine_type: n1-highmem-8
+agent_machine_type: n1-standard-32
 
 agent_boot_disk_type: pd-ssd
 
