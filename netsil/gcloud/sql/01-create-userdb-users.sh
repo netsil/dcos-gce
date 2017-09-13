@@ -8,3 +8,8 @@ passwd=`cat $USERDB_PASSWORD_FILE`
 gcloud sql users create root % \
         --instance=$CLOUDSQL_NAME \
         --password=$passwd
+
+# Create druid user
+gcloud sql users create druid % \
+        --instance=$CLOUDSQL_NAME \
+        --password=diurd
