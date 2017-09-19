@@ -38,9 +38,9 @@ end_id: 0003
 
 gcloudbin: /usr/bin/gcloud
 
-image: 'centos-7-v20161027'
+image: 'coreos-stable-1235-9-0-v20170202'
 
-image_project: 'centos-cloud'
+image_project: 'coreos-cloud'
 
 bootstrap_public_port: 8080
 
@@ -60,10 +60,13 @@ dcos_bootstrap_container: dcosinstaller
 
 # Netsil Section
 masters: 3
-starting_ip: 10.138.1.10
+starting_ip: 10.138.2.10
 region: us-west1
 base_key: netsil-cloud-prod
 cloudsql_db_version: MYSQL_5_7
 cloudsql_tier: db-n1-standard-8
 cloudsql_storage_size: 500
 
+ansible_user: core
+ansible_python_interpreter: /opt/bin/python
+pypy_version: 2.4.0
