@@ -14,9 +14,15 @@ python ./netsil/gen-hosts.py -a "gen_new_worker_host" -n $new_worker
 # Install DCOS agents
 ansible-playbook -i additional-hosts add_agents.yml --extra-vars "$start_end_ids agent_type=private"
 
+# For coreos bootstrap
+ansible-playbook -i additional-hosts coreos-bootstrap.yml
+
 # Add another agent node, scale apps
 # TODO: This can be refactored so we only run it on the agent...
 ansible-playbook -i additional-hosts netsil/netsil-builder/ansible/cloud-deployment.yml
 
 # GCP specific
 ./netsil/gcloud/lb/00-add-instances-to-ig.sh ${BASE_KEY}-agent${new_worker}
+
+# ADD WORKER TO NGINX
+# DISABLE COREOS UPDATES

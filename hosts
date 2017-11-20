@@ -1,10 +1,10 @@
 [masters]
 
-netsil-cloud-prod-master0 ip=10.138.1.10
+netsil-cloud-prod-master0 ip=10.138.2.10
 
-netsil-cloud-prod-master1 ip=10.138.1.11
+netsil-cloud-prod-master1 ip=10.138.2.11
 
-netsil-cloud-prod-master2 ip=10.138.1.12
+netsil-cloud-prod-master2 ip=10.138.2.12
 
 
 [agents]
