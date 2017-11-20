@@ -12,6 +12,7 @@ start_end_ids="start_id=$new_worker end_id=$new_worker"
 python ./netsil/gen-hosts.py -a "gen_new_worker_host" -n $new_worker
 
 # Install DCOS agents
+# NOTE: if this doesn't work because it can't connect to the newly created agent, just re-run it without the agent creation part
 ansible-playbook -i additional-hosts add_agents.yml --extra-vars "$start_end_ids agent_type=private"
 
 # For coreos bootstrap
